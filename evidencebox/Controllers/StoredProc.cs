@@ -6,18 +6,19 @@ namespace evidencebox.Controllers
 {
     public class StoredProc 
     {
-        private Dictionary<string, object> formatSqlData(SqlDataReader rdr) 
+        private Dictionary<int, object> formatSqlData(SqlDataReader rdr) 
         {
-            var items = new Dictionary<string, object>();
+            var items = new Dictionary<int, object>();
 
             while (rdr.Read()) 
             {
+                int counter = 0;
                 var item = new Dictionary<string, object>();
-                for (var i = 1; i < rdr.FieldCount; i++) 
+                for (var i = 0; i < rdr.FieldCount; i++) 
                 {
                     item.Add(rdr.GetName(i), rdr.GetValue(i));
                 }
-                items.Add(rdr.GetValue(0).ToString(), item);
+                items.Add(counter++, item);
             }
             return items;
         }

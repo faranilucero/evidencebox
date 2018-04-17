@@ -17,7 +17,7 @@ namespace evidencebox.Controllers
         public JsonResult Get(string sessionGuid)
         {
             var returnDataObj = new Dictionary<string, Dictionary<string, object>>();
-            var qryResult = new Dictionary<string, object>();
+            var qryResult = new Dictionary<int, Dictionary<string, object>>();
             var spd = new StoredProc();
             var procParams = new Dictionary<string, string>();
             string transactionUserIP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
@@ -25,7 +25,7 @@ namespace evidencebox.Controllers
             procParams.Add("@SESSION_GUID", sessionGuid);
             qryResult = spd.RunStoredProc("evidencebx.USERS_SELECT_SELF", procParams);
 
-            return Json(qryResult.);
+            return Json(qryResult[0]["USER_STAMP"]);
 
             // GET SESSION INFO
 

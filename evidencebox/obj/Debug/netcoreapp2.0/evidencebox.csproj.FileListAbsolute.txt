@@ -8,13 +8,3 @@
 /Users/farani/Projects/evidencebox/evidencebox/obj/Debug/netcoreapp2.0/evidencebox.AssemblyInfo.cs
 /Users/farani/Projects/evidencebox/evidencebox/obj/Debug/netcoreapp2.0/evidencebox.dll
 /Users/farani/Projects/evidencebox/evidencebox/obj/Debug/netcoreapp2.0/evidencebox.pdb
-/Users/farani/Documents/repo/evidencebox/evidencebox/bin/Debug/netcoreapp2.0/evidencebox.deps.json
-/Users/farani/Documents/repo/evidencebox/evidencebox/bin/Debug/netcoreapp2.0/evidencebox.runtimeconfig.json
-/Users/farani/Documents/repo/evidencebox/evidencebox/bin/Debug/netcoreapp2.0/evidencebox.runtimeconfig.dev.json
-/Users/farani/Documents/repo/evidencebox/evidencebox/bin/Debug/netcoreapp2.0/evidencebox.dll
-/Users/farani/Documents/repo/evidencebox/evidencebox/bin/Debug/netcoreapp2.0/evidencebox.pdb
-/Users/farani/Documents/repo/evidencebox/evidencebox/obj/Debug/netcoreapp2.0/evidencebox.csproj.CoreCompileInputs.cache
-/Users/farani/Documents/repo/evidencebox/evidencebox/obj/Debug/netcoreapp2.0/evidencebox.AssemblyInfoInputs.cache
-/Users/farani/Documents/repo/evidencebox/evidencebox/obj/Debug/netcoreapp2.0/evidencebox.AssemblyInfo.cs
-/Users/farani/Documents/repo/evidencebox/evidencebox/obj/Debug/netcoreapp2.0/evidencebox.dll
-/Users/farani/Documents/repo/evidencebox/evidencebox/obj/Debug/netcoreapp2.0/evidencebox.pdb

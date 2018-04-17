@@ -13,7 +13,7 @@ namespace evidencebox.Controllers
         [HttpGet]
         public JsonResult Get(ControllerContext context)
         {
-            var returnDataObj = new Dictionary<string, Dictionary<string, object>>();
+            var returnDataObj = new Dictionary<string, Dictionary<int, object>>();
             var spd = new StoredProc();
 
             returnDataObj.Add("AGENCIES", spd.RunStoredProc("evidencebx.AGENCIES_SELECT", null));            
@@ -24,7 +24,7 @@ namespace evidencebox.Controllers
         [HttpGet("{agency_guid}")]
         public JsonResult Get(string agency_guid)
         {
-            var returnDataObj = new Dictionary<string, Dictionary<string, object>>();
+            var returnDataObj = new Dictionary<string, Dictionary<int, object>>();
             var spd = new StoredProc();
             var procParams = new Dictionary<string, string>();
 
