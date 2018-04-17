@@ -6,10 +6,9 @@ namespace evidencebox.Controllers
 {
     public class StoredProc 
     {
-        private Dictionary<string, object> formatSqlData(SqlDataReader rdr, string resultName) 
+        private Dictionary<string, object> formatSqlData(SqlDataReader rdr) 
         {
             var items = new Dictionary<string, object>();
-            var returnData = new Dictionary<string, object>();
 
             while (rdr.Read()) 
             {
@@ -20,11 +19,10 @@ namespace evidencebox.Controllers
                 }
                 items.Add(rdr.GetValue(0).ToString(), item);
             }
-            returnData.Add(resultName, items);
-            return returnData;
+            return items;
         }
     
-        public Dictionary<string, object> RunStoredProc(string sqlcmd, string resultName, Dictionary<string, string> param) 
+        public Dictionary<string, object> RunStoredProc(string sqlcmd, Dictionary<string, string> procParams) 
         {
             SqlConnection conn = null;
             SqlDataReader rdr = null;
@@ -38,9 +36,10 @@ namespace evidencebox.Controllers
                 var cmd = new SqlCommand(sqlcmd, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                if (param != null)
+                // add parameters
+                if (procParams != null)
                 {
-                    foreach (var pair in param) // ADD PARAMETERS
+                    foreach (var pair in procParams)
                     {
                         cmd.Parameters.Add(new SqlParameter(pair.Key, pair.Value));
                     }
@@ -48,10 +47,7 @@ namespace evidencebox.Controllers
                 rdr = cmd.ExecuteReader();
 
                 //processData
-                var returnData = new Dictionary<string, object>();
-                returnData = formatSqlData(rdr, resultName);
-
-                return returnData;
+                return formatSqlData(rdr);
             }
             finally 
             {

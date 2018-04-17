@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System;
 
 namespace evidencebox.Controllers
 {
@@ -11,20 +13,24 @@ namespace evidencebox.Controllers
         [HttpGet]
         public JsonResult Get(ControllerContext context)
         {
+            var returnDataObj = new Dictionary<string, Dictionary<string, object>>();
             var spd = new StoredProc();
-            var qryResult = spd.RunStoredProc("evidencebx.AGENCIES_SELECT", "AGENCIES", null);
-            return Json(qryResult);
+
+            returnDataObj.Add("AGENCIES", spd.RunStoredProc("evidencebx.AGENCIES_SELECT", null));            
+            return Json(returnDataObj);
         }
 
         // GET api/values/5
         [HttpGet("{agency_guid}")]
         public JsonResult Get(string agency_guid)
         {
+            var returnDataObj = new Dictionary<string, Dictionary<string, object>>();
             var spd = new StoredProc();
             var procParams = new Dictionary<string, string>();
-            procParams.Add("@AGENCY_GUID",agency_guid);
-            var qryResult = spd.RunStoredProc("evidencebx.AGENCY_USERS_SELECT", "AGENCY_USERS", procParams);
-            return Json(qryResult);
+
+            procParams.Add("@AGENCY_GUID", agency_guid);
+            returnDataObj.Add("AGENCY_USERS", spd.RunStoredProc("evidencebx.AGENCY_USERS_SELECT", procParams));
+            return Json(returnDataObj);
         }
 
         // POST api/values
